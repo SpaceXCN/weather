@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dff5f8"/>
+      <stop offset="0.48" stop-color="#f7fbf1"/>
+      <stop offset="1" stop-color="#d9efe8"/>
+    </linearGradient>
+    <linearGradient id="haze" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#f4ead2" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe58a"/>
+      <stop offset="1" stop-color="#f3a35c"/>
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c8f9d" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#477a58" stop-opacity="0.08"/>
+    </linearGradient>
+    <pattern id="map-grid" width="150" height="150" patternUnits="userSpaceOnUse">
+      <path d="M150 0H0v150" fill="none" stroke="#075f68" stroke-width="1" opacity="0.14"/>
+      <path d="M0 75h150M75 0v150" fill="none" stroke="#477a58" stroke-width="1" opacity="0.08"/>
+    </pattern>
+    <filter id="soften" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1600" fill="url(#sky)"/>
+  <rect width="2400" height="1600" fill="url(#map-grid)" opacity="0.7"/>
+
+  <g opacity="0.95">
+    <circle cx="1510" cy="235" r="190" fill="url(#warm)"/>
+    <circle cx="1510" cy="235" r="310" fill="#ffe8a8" opacity="0.34" filter="url(#soften)"/>
+    <path d="M1510-20v95M1510 395v95M1255 235h95M1670 235h95M1328 53l68 68M1624 349l68 68M1692 53l-68 68M1396 349l-68 68"
+      fill="none" stroke="#e85f3d" stroke-width="14" stroke-linecap="round" opacity="0.32"/>
+  </g>
+
+  <g fill="#ffffff" opacity="0.78" filter="url(#soften)">
+    <ellipse cx="430" cy="260" rx="210" ry="64"/>
+    <ellipse cx="565" cy="245" rx="155" ry="72"/>
+    <ellipse cx="710" cy="280" rx="235" ry="70"/>
+    <ellipse cx="1515" cy="420" rx="285" ry="88"/>
+    <ellipse cx="1695" cy="385" rx="188" ry="76"/>
+    <ellipse cx="1915" cy="432" rx="272" ry="84"/>
+  </g>
+
+  <g fill="none" stroke="#0c8f9d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.2">
+    <path d="M1285 372c74-68 178-66 248 5 55-35 127-28 174 18 80-16 157 35 172 111"/>
+    <path d="M1325 500h600"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M155 570c260-105 485-125 695-58 204 64 410 48 612-48 224-106 462-128 714-48"
+      stroke="#0c8f9d" stroke-width="5" opacity="0.12"/>
+    <path d="M125 805c320-88 595-72 826 46 205 105 405 104 598-3 210-116 438-118 684-8"
+      stroke="#477a58" stroke-width="5" opacity="0.12"/>
+    <path d="M222 400l150 70 180-95 210 132 178-82 220 108"
+      stroke="#075f68" stroke-width="4" opacity="0.1"/>
+    <path d="M1360 700c105-70 202-70 290 0s184 68 286-8"
+      stroke="#e85f3d" stroke-width="5" opacity="0.1"/>
+  </g>
+
+  <g opacity="0.35">
+    <path d="M0 1230 170 1095l175 52 142-118 150 73 177-140 210 130 144-83 190 117 184-120 180 122 160-86 225 116 193-126v568H0Z"
+      fill="url(#ridge)"/>
+    <path d="M0 1335 210 1232l170 65 190-92 188 86 230-122 240 128 172-72 250 104 225-90 245 108 280-120v373H0Z"
+      fill="#477a58" opacity="0.08"/>
+  </g>
+
+  <g fill="none" stroke="#075f68" stroke-width="3" stroke-linecap="round" opacity="0.12">
+    <path d="M1910 685c-20 65-10 116 30 152"/>
+    <path d="M1980 670c-20 65-10 116 30 152"/>
+    <path d="M2050 655c-20 65-10 116 30 152"/>
+    <path d="M2120 640c-20 65-10 116 30 152"/>
+  </g>
+
+  <rect width="2400" height="1600" fill="url(#haze)"/>
+</svg>

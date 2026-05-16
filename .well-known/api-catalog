@@ -1,0 +1,38 @@
+{
+  "linkset": [
+    {
+      "anchor": "http://127.0.0.1:5173/",
+      "describedby": [
+        {
+          "href": "http://127.0.0.1:5173/index.md",
+          "type": "text/markdown",
+          "title": "China Weather Desk markdown description"
+        },
+        {
+          "href": "http://127.0.0.1:5173/llms.txt",
+          "type": "text/markdown",
+          "title": "Agent-readable site overview"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://open-meteo.com/en/docs",
+          "type": "text/html",
+          "title": "Open-Meteo Forecast API documentation"
+        },
+        {
+          "href": "https://open-meteo.com/en/docs/geocoding-api",
+          "type": "text/html",
+          "title": "Open-Meteo Geocoding API documentation"
+        }
+      ],
+      "alternate": [
+        {
+          "href": "http://127.0.0.1:5173/index.md",
+          "type": "text/markdown",
+          "title": "Markdown version"
+        }
+      ]
+    }
+  ]
+}

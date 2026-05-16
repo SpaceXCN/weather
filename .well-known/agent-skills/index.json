@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agentskills.io/schemas/skill-discovery-index.json",
+  "publisher": {
+    "name": "China Weather Desk",
+    "url": "http://127.0.0.1:5173/"
+  },
+  "skills": [
+    {
+      "id": "china-weather-lookup",
+      "name": "China Weather Lookup",
+      "description": "Look up current weather and a 7-day forecast for Chinese cities by English name or pinyin.",
+      "version": "1.0.0",
+      "path": "/.well-known/agent-skills/china-weather-lookup/SKILL.md",
+      "mimeType": "text/markdown",
+      "digest": "sha256:d0cd7b92e33814da0500c9225d4c43a0b2467fb58e4b44d56af3644359d9ea12",
+      "tags": ["weather", "china", "travel"],
+      "capabilities": {
+        "readOnly": true,
+        "requiresAuthentication": false
+      }
+    }
+  ]
+}

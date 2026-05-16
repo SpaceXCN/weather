@@ -1,0 +1,55 @@
+# China Weather Desk
+
+> Live current weather and 7-day forecasts for Chinese cities, designed for international travelers and agentic browsers.
+
+China Weather Desk is a static, free-to-use weather application. It searches Chinese cities by English name or pinyin, resolves city matches through Open-Meteo Geocoding, and displays current conditions plus a 7-day forecast from Open-Meteo Forecast.
+
+## Primary Pages
+
+- [Human web app](/): Interactive weather search UI.
+- [Markdown app description](/index.md): Agent-readable summary of this page.
+- [Agent Skills index](/.well-known/agent-skills/index.json): Discoverable skill definition for weather lookup.
+- [API catalog](/.well-known/api-catalog): Linkset describing the public upstream APIs used by this app.
+
+## Query Interface
+
+The app accepts these URL parameters:
+
+- `city`: Chinese city name in English or pinyin. Examples: `Beijing`, `Shanghai`, `Guangzhou`, `Shenzhen`, `Xi'an`.
+- `unit`: `celsius` or `fahrenheit`. Defaults to `celsius`.
+
+Example:
+
+```text
+/?city=Shanghai&unit=fahrenheit
+```
+
+## Browser Tool
+
+When a browser supports WebMCP, the app registers a read-only tool named `get_china_city_weather`.
+
+Input schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "city": { "type": "string" },
+    "unit": { "type": "string", "enum": ["celsius", "fahrenheit"] }
+  },
+  "required": ["city"]
+}
+```
+
+## Data Sources
+
+- [Open-Meteo Forecast API](https://open-meteo.com/en/docs)
+- [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api)
+
+## Limits
+
+- No user accounts.
+- No paid checkout.
+- No first-party API key is required.
+- No first-party MCP server is provided.
+- Forecasts depend on Open-Meteo API availability.

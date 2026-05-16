@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Live weather forecasts for Chinese cities, built for international travelers."
+    >
+    <meta name="robots" content="index,follow">
+    <title>China Weather Desk</title>
+    <link rel="canonical" href="/">
+    <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version">
+    <link rel="llms-txt" type="text/markdown" href="/llms.txt">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="agent-skills" type="application/json" href="/.well-known/agent-skills/index.json">
+    <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "China Weather Desk",
+        "url": "/",
+        "applicationCategory": "WeatherApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "en",
+        "description": "Live current weather and 7-day forecasts for Chinese cities, designed for international travelers.",
+        "isAccessibleForFree": true,
+        "provider": {
+          "@type": "Organization",
+          "name": "Open-Meteo",
+          "url": "https://open-meteo.com/"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "/?city={city_name}&unit=celsius",
+          "query-input": "required name=city_name"
+        }
+      }
+    </script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" aria-label="Site header">
+        <a class="brand" href="#" aria-label="China Weather Desk home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span>
+          </span>
+          <span>China Weather Desk</span>
+        </a>
+
+        <div class="unit-switch" role="group" aria-label="Temperature unit">
+          <button class="unit-button is-active" type="button" data-unit="celsius" aria-pressed="true">
+            C
+          </button>
+          <button class="unit-button" type="button" data-unit="fahrenheit" aria-pressed="false">
+            F
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-section" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Weather across China</p>
+            <h1 id="page-title">Plan the day in local weather.</h1>
+            <p class="hero-text">
+              Current conditions and 7-day forecasts for Chinese cities, shown in traveler-ready English.
+            </p>
+          </div>
+
+          <div class="search-panel" aria-label="City search">
+            <form class="search-form" id="searchForm" action="/" method="get">
+              <label class="sr-only" for="cityInput">Chinese city name</label>
+              <div class="search-field">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M10.8 4.2a6.6 6.6 0 1 0 4.2 11.7l3.7 3.7 1.3-1.3-3.7-3.7A6.6 6.6 0 0 0 10.8 4.2Zm0 1.9a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4Z"></path>
+                </svg>
+                <input
+                  id="cityInput"
+                  name="city"
+                  type="search"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="Search Beijing, Shanghai, Xi'an..."
+                >
+              </div>
+              <button class="primary-button" type="submit">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M12 2.7 3.7 21.3l8.3-3.5 8.3 3.5L12 2.7Zm0 4.8 4.5 10-4.5-1.9-4.5 1.9L12 7.5Z"></path>
+                </svg>
+                Search
+              </button>
+            </form>
+
+            <div class="quick-cities" aria-label="Popular Chinese cities" id="quickCities"></div>
+          </div>
+        </section>
+
+        <section class="status-line" id="statusLine" aria-live="polite" hidden></section>
+
+        <section class="results-panel" id="resultsPanel" aria-labelledby="resultsTitle" hidden>
+          <div class="section-heading">
+            <p class="eyebrow">Matches in China</p>
+            <h2 id="resultsTitle">Choose a city</h2>
+          </div>
+          <div class="city-results" id="cityResults"></div>
+        </section>
+
+        <section class="weather-board" id="weatherBoard" aria-labelledby="weatherTitle" hidden>
+          <div class="current-weather">
+            <div class="current-summary">
+              <div class="weather-icon" id="currentIcon" aria-hidden="true"></div>
+              <div>
+                <p class="eyebrow" id="weatherLabel">Current weather</p>
+                <h2 id="weatherTitle">Beijing</h2>
+                <p class="place-line" id="placeLine"></p>
+              </div>
+            </div>
+
+            <div class="temperature-block">
+              <p class="current-temp" id="currentTemp"></p>
+              <p class="condition-line" id="conditionLine"></p>
+            </div>
+
+            <dl class="metric-grid">
+              <div>
+                <dt>Feels like</dt>
+                <dd id="feelsLike"></dd>
+              </div>
+              <div>
+                <dt>Humidity</dt>
+                <dd id="humidity"></dd>
+              </div>
+              <div>
+                <dt>Wind</dt>
+                <dd id="wind"></dd>
+              </div>
+              <div>
+                <dt>Updated</dt>
+                <dd id="updatedAt"></dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="forecast-section">
+            <div class="section-heading">
+              <p class="eyebrow">7-day outlook</p>
+              <h2>Forecast</h2>
+            </div>
+            <div class="forecast-grid" id="forecastGrid"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <noscript>
+      <p class="noscript-message">This weather page needs JavaScript to request live forecasts.</p>
+    </noscript>
+  </body>
+</html>

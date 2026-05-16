@@ -1,0 +1,10 @@
+{
+  "name": "china-weather-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent-readable weather page for Chinese cities.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check app.js && node --check server.js"
+  }
+}
