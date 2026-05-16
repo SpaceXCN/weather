@@ -1,15 +1,15 @@
 {
   "linkset": [
     {
-      "anchor": "http://127.0.0.1:5173/",
+      "anchor": "http://weather.9981ai.xyz/",
       "describedby": [
         {
-          "href": "http://127.0.0.1:5173/index.md",
+          "href": "http://weather.9981ai.xyz/index.md",
           "type": "text/markdown",
           "title": "China Weather Desk markdown description"
         },
         {
-          "href": "http://127.0.0.1:5173/llms.txt",
+          "href": "http://weather.9981ai.xyz/llms.txt",
           "type": "text/markdown",
           "title": "Agent-readable site overview"
         }
@@ -28,7 +28,7 @@
       ],
       "alternate": [
         {
-          "href": "http://127.0.0.1:5173/index.md",
+          "href": "http://weather.9981ai.xyz/index.md",
           "type": "text/markdown",
           "title": "Markdown version"
         }

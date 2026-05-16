@@ -20,4 +20,4 @@ User-agent: Google-Extended
 Allow: /
 
 Content-Signal: search=yes, ai-input=yes, ai-train=no
-Sitemap: http://127.0.0.1:5173/sitemap.xml
+Sitemap: http://weather.9981ai.xyz/sitemap.xml
