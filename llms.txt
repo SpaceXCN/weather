@@ -8,6 +8,8 @@ China Weather Desk is a static, free-to-use weather application. It searches Chi
 
 - [Human web app](/): Interactive weather search UI.
 - [Markdown app description](/index.md): Agent-readable summary of this page.
+- [AI structured data](/.well-known/ai-data.json): JSON description of capabilities, query parameters, browser tool, data sources, and related resources.
+- [Weather response schema](/weather-response.schema.json): JSON Schema for structured browser-tool weather responses.
 - [Agent Skills index](/.well-known/agent-skills/index.json): Discoverable skill definition for weather lookup.
 - [API catalog](/.well-known/api-catalog): Linkset describing the public upstream APIs used by this app.
 

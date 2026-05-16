@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://weather.9981ai.xyz/weather-response.schema.json",
+  "title": "China Weather Desk Weather Response",
+  "type": "object",
+  "required": ["found"],
+  "properties": {
+    "found": {
+      "type": "boolean",
+      "description": "Whether a matching Chinese city was found."
+    },
+    "source": {
+      "type": "string",
+      "const": "Open-Meteo"
+    },
+    "unit": {
+      "type": "string",
+      "enum": ["celsius", "fahrenheit"]
+    },
+    "city": {
+      "type": "object",
+      "required": ["name", "country", "latitude", "longitude"],
+      "properties": {
+        "name": { "type": "string" },
+        "admin1": { "type": ["string", "null"] },
+        "admin2": { "type": ["string", "null"] },
+        "country": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "timezone": { "type": ["string", "null"] }
+      }
+    },
+    "current": {
+      "type": "object",
+      "required": ["time", "temperature", "apparentTemperature", "relativeHumidity", "windSpeedKmh", "weatherCode", "condition"],
+      "properties": {
+        "time": { "type": "string" },
+        "temperature": { "type": "number" },
+        "apparentTemperature": { "type": "number" },
+        "relativeHumidity": { "type": "number" },
+        "windSpeedKmh": { "type": "number" },
+        "weatherCode": { "type": "number" },
+        "condition": { "type": "string" }
+      }
+    },
+    "daily": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["date", "weatherCode", "condition", "temperatureMax", "temperatureMin", "precipitationProbabilityMax", "windSpeedMaxKmh"],
+        "properties": {
+          "date": { "type": "string" },
+          "weatherCode": { "type": "number" },
+          "condition": { "type": "string" },
+          "temperatureMax": { "type": "number" },
+          "temperatureMin": { "type": "number" },
+          "precipitationProbabilityMax": { "type": "number" },
+          "windSpeedMaxKmh": { "type": "number" }
+        }
+      }
+    },
+    "matches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "country", "latitude", "longitude"],
+        "properties": {
+          "name": { "type": "string" },
+          "admin1": { "type": ["string", "null"] },
+          "admin2": { "type": ["string", "null"] },
+          "country": { "type": "string" },
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" }
+        }
+      }
+    },
+    "query": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

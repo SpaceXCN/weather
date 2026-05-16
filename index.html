@@ -13,6 +13,8 @@
     <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version">
     <link rel="llms-txt" type="text/markdown" href="/llms.txt">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="alternate" type="application/json" href="/.well-known/ai-data.json" title="AI-readable site data">
+    <link rel="describedby" type="application/schema+json" href="/weather-response.schema.json" title="Weather response JSON Schema">
     <link rel="agent-skills" type="application/json" href="/.well-known/agent-skills/index.json">
     <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,24 +32,93 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "China Weather Desk",
-        "url": "/",
-        "applicationCategory": "WeatherApplication",
-        "operatingSystem": "Any",
-        "inLanguage": "en",
-        "description": "Live current weather and 7-day forecasts for Chinese cities, designed for international travelers.",
-        "isAccessibleForFree": true,
-        "provider": {
-          "@type": "Organization",
-          "name": "Open-Meteo",
-          "url": "https://open-meteo.com/"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "/?city={city_name}&unit=celsius",
-          "query-input": "required name=city_name"
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://weather.9981ai.xyz/#website",
+            "name": "China Weather Desk",
+            "url": "https://weather.9981ai.xyz/",
+            "inLanguage": "en",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://weather.9981ai.xyz/?city={city_name}&unit=celsius",
+              "query-input": "required name=city_name"
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://weather.9981ai.xyz/#app",
+            "name": "China Weather Desk",
+            "url": "https://weather.9981ai.xyz/",
+            "applicationCategory": "WeatherApplication",
+            "operatingSystem": "Any",
+            "inLanguage": "en",
+            "description": "Live current weather and 7-day forecasts for Chinese cities, designed for international travelers.",
+            "isAccessibleForFree": true,
+            "provider": {
+              "@type": "Organization",
+              "name": "Open-Meteo",
+              "url": "https://open-meteo.com/"
+            },
+            "softwareHelp": {
+              "@type": "CreativeWork",
+              "url": "https://weather.9981ai.xyz/llms.txt",
+              "encodingFormat": "text/markdown"
+            },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://weather.9981ai.xyz/?city={city_name}&unit={unit_name}",
+              "query-input": [
+                "required name=city_name",
+                "optional name=unit_name"
+              ]
+            }
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://weather.9981ai.xyz/#weather-query-interface",
+            "name": "China city weather query interface",
+            "description": "AI-readable description of the URL and browser-tool interface for querying Chinese city weather.",
+            "url": "https://weather.9981ai.xyz/.well-known/ai-data.json",
+            "encodingFormat": "application/json",
+            "license": "https://open-meteo.com/en/license",
+            "isAccessibleForFree": true,
+            "creator": {
+              "@type": "Organization",
+              "name": "China Weather Desk"
+            },
+            "variableMeasured": [
+              "temperature",
+              "apparent temperature",
+              "relative humidity",
+              "wind speed",
+              "weather condition",
+              "precipitation probability"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://weather.9981ai.xyz/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How can an agent query weather for a Chinese city?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Use the URL pattern https://weather.9981ai.xyz/?city=Beijing&unit=celsius or call the WebMCP read-only tool get_china_city_weather when available."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does the site require an API key?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. The page calls Open-Meteo public APIs directly from the browser."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <script src="app.js" defer></script>

@@ -1,5 +1,5 @@
 /*
-  Link: </sitemap.xml>; rel="sitemap"; type="application/xml", </llms.txt>; rel="llms-txt"; type="text/markdown", </index.md>; rel="alternate"; type="text/markdown", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml", </llms.txt>; rel="llms-txt"; type="text/markdown", </index.md>; rel="alternate"; type="text/markdown", </.well-known/ai-data.json>; rel="alternate"; type="application/json", </weather-response.schema.json>; rel="describedby"; type="application/schema+json", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
   X-Content-Type-Options: nosniff
 
 /
@@ -13,6 +13,9 @@
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json; charset=utf-8
+
+/weather-response.schema.json
+  Content-Type: application/schema+json; charset=utf-8
 
 /.well-known/agent-skills/*
   Access-Control-Allow-Origin: *

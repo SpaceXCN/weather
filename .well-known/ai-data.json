@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "China Weather Desk",
+  "url": "https://weather.9981ai.xyz/",
+  "description": "Live current weather and 7-day forecasts for Chinese cities, designed for international travelers and agentic browsers.",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "capabilities": [
+    "search Chinese cities by English name or pinyin",
+    "resolve duplicate Chinese city names with province, municipality, population, and timezone metadata",
+    "show current temperature, apparent temperature, humidity, wind speed, and weather condition",
+    "show 7-day daily forecasts with high and low temperature, precipitation probability, wind speed, and weather condition",
+    "switch temperature units between Celsius and Fahrenheit"
+  ],
+  "queryInterface": {
+    "method": "GET",
+    "urlTemplate": "https://weather.9981ai.xyz/?city={city}&unit={unit}",
+    "parameters": [
+      {
+        "name": "city",
+        "type": "string",
+        "required": true,
+        "description": "Chinese city name in English or pinyin.",
+        "examples": ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Xi'an"]
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "required": false,
+        "enum": ["celsius", "fahrenheit"],
+        "default": "celsius"
+      }
+    ]
+  },
+  "browserTool": {
+    "protocol": "WebMCP",
+    "name": "get_china_city_weather",
+    "readOnly": true,
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "Chinese city name in English or pinyin."
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["celsius", "fahrenheit"],
+          "default": "celsius"
+        }
+      },
+      "required": ["city"],
+      "additionalProperties": false
+    },
+    "outputSchema": "https://weather.9981ai.xyz/weather-response.schema.json"
+  },
+  "dataSources": [
+    {
+      "name": "Open-Meteo Forecast API",
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "documentation": "https://open-meteo.com/en/docs",
+      "requiresAuthentication": false
+    },
+    {
+      "name": "Open-Meteo Geocoding API",
+      "url": "https://geocoding-api.open-meteo.com/v1/search",
+      "documentation": "https://open-meteo.com/en/docs/geocoding-api",
+      "requiresAuthentication": false
+    }
+  ],
+  "contentSignals": {
+    "search": true,
+    "aiInput": true,
+    "aiTraining": false
+  },
+  "relatedResources": {
+    "llmsTxt": "https://weather.9981ai.xyz/llms.txt",
+    "markdownDescription": "https://weather.9981ai.xyz/index.md",
+    "agentSkills": "https://weather.9981ai.xyz/.well-known/agent-skills/index.json",
+    "apiCatalog": "https://weather.9981ai.xyz/.well-known/api-catalog",
+    "sitemap": "https://weather.9981ai.xyz/sitemap.xml"
+  },
+  "limitations": [
+    "No air quality data.",
+    "No user accounts.",
+    "No first-party API key is required.",
+    "Forecasts depend on Open-Meteo API availability."
+  ]
+}

@@ -22,6 +22,8 @@ const siteLinks = [
   '</sitemap.xml>; rel="sitemap"; type="application/xml"',
   '</llms.txt>; rel="llms-txt"; type="text/markdown"',
   '</index.md>; rel="alternate"; type="text/markdown"',
+  '</.well-known/ai-data.json>; rel="alternate"; type="application/json"',
+  '</weather-response.schema.json>; rel="describedby"; type="application/schema+json"',
   '</.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"',
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
 ].join(", ");
@@ -100,9 +102,17 @@ function sendFile(res, file, headers = {}, method = "GET") {
       return sendText(res, "Not found", { "Content-Type": types[".txt"] }, method, 404);
     }
 
-    const contentType = headers["Content-Type"] || types[path.extname(full)] || "application/octet-stream";
+    const contentType = headers["Content-Type"] || contentTypeFor(file);
     sendBuffer(res, data, { ...headers, "Content-Type": contentType }, method);
   });
+}
+
+function contentTypeFor(file) {
+  if (file.endsWith(".schema.json")) {
+    return "application/schema+json; charset=utf-8";
+  }
+
+  return types[path.extname(file)] || "application/octet-stream";
 }
 
 function sendText(res, text, headers = {}, method = "GET", status = 200) {
@@ -188,12 +198,22 @@ function apiCatalog(req) {
             type: "text/markdown",
             title: "China Weather Desk markdown description",
           },
-          {
-            href: `${origin}/llms.txt`,
-            type: "text/markdown",
-            title: "Agent-readable site overview",
-          },
-        ],
+        {
+          href: `${origin}/llms.txt`,
+          type: "text/markdown",
+          title: "Agent-readable site overview",
+        },
+        {
+          href: `${origin}/.well-known/ai-data.json`,
+          type: "application/json",
+          title: "AI-readable structured site data",
+        },
+        {
+          href: `${origin}/weather-response.schema.json`,
+          type: "application/schema+json",
+          title: "Weather response JSON Schema",
+        },
+      ],
         "service-doc": [
           {
             href: "https://open-meteo.com/en/docs",

@@ -24,6 +24,11 @@ If multiple city matches exist, the UI shows the city name, province or municipa
 
 If WebMCP is available in the browser, use the `get_china_city_weather` tool for a direct structured result instead of clicking through the UI.
 
+Additional AI-readable JSON resources:
+
+- `/.well-known/ai-data.json`: capabilities, query interface, browser-tool metadata, data sources, and limitations.
+- `/weather-response.schema.json`: JSON Schema for structured weather responses.
+
 ## Data Source
 
 The page calls Open-Meteo directly from the browser:
