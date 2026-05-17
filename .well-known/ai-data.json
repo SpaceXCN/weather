@@ -10,7 +10,8 @@
     "resolve duplicate Chinese city names with province, municipality, population, and timezone metadata",
     "show current temperature, apparent temperature, humidity, wind speed, and weather condition",
     "show 7-day daily forecasts with high and low temperature, precipitation probability, wind speed, and weather condition",
-    "switch temperature units between Celsius and Fahrenheit"
+    "switch temperature units between Celsius and Fahrenheit",
+    "show public site and page access statistics"
   ],
   "queryInterface": {
     "method": "GET",
@@ -66,6 +67,13 @@
       "url": "https://geocoding-api.open-meteo.com/v1/search",
       "documentation": "https://open-meteo.com/en/docs/geocoding-api",
       "requiresAuthentication": false
+    },
+    {
+      "name": "Busuanzi visitor counter",
+      "url": "https://busuanzi.ibruce.info/",
+      "documentation": "https://busuanzi.ibruce.info/",
+      "requiresAuthentication": false,
+      "purpose": "Public page view, site view, and visitor count display."
     }
   ],
   "contentSignals": {
@@ -84,6 +92,7 @@
     "No air quality data.",
     "No user accounts.",
     "No first-party API key is required.",
-    "Forecasts depend on Open-Meteo API availability."
+    "Forecasts depend on Open-Meteo API availability.",
+    "Access statistics depend on Busuanzi availability."
   ]
 }

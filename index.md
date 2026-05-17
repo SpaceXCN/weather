@@ -9,6 +9,7 @@ China Weather Desk is a lightweight weather page for foreigners who need quick w
 - Shows a 7-day forecast with daily high and low temperatures, rain probability, wind speed, and weather condition.
 - Supports Celsius and Fahrenheit.
 - Uses English UI labels and English city metadata from Open-Meteo.
+- Displays public site views, visitors, and current page views.
 
 ## How Agents Can Use It
 
@@ -35,6 +36,7 @@ The page calls Open-Meteo directly from the browser:
 
 - Geocoding endpoint: `https://geocoding-api.open-meteo.com/v1/search`
 - Forecast endpoint: `https://api.open-meteo.com/v1/forecast`
+- Visitor counter: `https://busuanzi.ibruce.info/`
 
 No API key is required.
 
@@ -46,3 +48,4 @@ No API key is required.
 - Location permission.
 - Accounts or authentication.
 - First-party MCP server.
+- First-party analytics backend.

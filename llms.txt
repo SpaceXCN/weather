@@ -4,6 +4,8 @@
 
 China Weather Desk is a static, free-to-use weather application. It searches Chinese cities by English name or pinyin, resolves city matches through Open-Meteo Geocoding, and displays current conditions plus a 7-day forecast from Open-Meteo Forecast.
 
+The page also displays lightweight public access statistics for site views, visitors, and current page views through Busuanzi.
+
 ## Primary Pages
 
 - [Human web app](/): Interactive weather search UI.
@@ -47,6 +49,7 @@ Input schema:
 
 - [Open-Meteo Forecast API](https://open-meteo.com/en/docs)
 - [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api)
+- [Busuanzi visitor counter](https://busuanzi.ibruce.info/)
 
 ## Limits
 
@@ -55,3 +58,4 @@ Input schema:
 - No first-party API key is required.
 - No first-party MCP server is provided.
 - Forecasts depend on Open-Meteo API availability.
+- Access statistics depend on Busuanzi availability.

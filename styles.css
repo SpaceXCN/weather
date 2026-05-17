@@ -195,6 +195,8 @@ h1 {
   max-width: 780px;
   font-size: clamp(3rem, 7vw, 6.6rem);
   line-height: 0.9;
+  overflow-wrap: normal;
+  text-wrap: balance;
 }
 
 .hero-text {
@@ -572,6 +574,41 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.site-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.traffic-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.traffic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 11px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(23, 33, 30, 0.06);
+}
+
+.traffic-pill strong {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -623,7 +660,7 @@ h1 {
 
   .site-header {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: 1fr;
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 32px;
@@ -644,6 +681,7 @@ h1 {
 
   .unit-switch {
     grid-template-columns: repeat(2, 38px);
+    justify-self: start;
   }
 
   .unit-button {
@@ -711,6 +749,21 @@ h1 {
 
   .forecast-grid {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    margin-top: 22px;
+  }
+
+  .traffic-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .traffic-pill {
+    justify-content: space-between;
+    width: 100%;
   }
 
   .forecast-day {

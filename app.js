@@ -1,5 +1,7 @@
 const GEOCODING_ENDPOINT = "https://geocoding-api.open-meteo.com/v1/search";
 const FORECAST_ENDPOINT = "https://api.open-meteo.com/v1/forecast";
+const ACCESS_STATS_ENDPOINT = "https://busuanzi.ibruce.info/busuanzi";
+const ACCESS_STATS_TIMEOUT_MS = 6000;
 const DEFAULT_CITY = "Beijing";
 const VALID_UNITS = new Set(["celsius", "fahrenheit"]);
 
@@ -30,6 +32,12 @@ const DAILY_FIELDS = [
   "temperature_2m_min",
   "precipitation_probability_max",
   "wind_speed_10m_max",
+];
+
+const ACCESS_STATS_FIELDS = [
+  ["site_pv", "#busuanzi_value_site_pv"],
+  ["site_uv", "#busuanzi_value_site_uv"],
+  ["page_pv", "#busuanzi_value_page_pv"],
 ];
 
 const FEATURE_PRIORITY = {
@@ -67,6 +75,11 @@ const dom = {
   updatedAt: document.querySelector("#updatedAt"),
   forecastGrid: document.querySelector("#forecastGrid"),
   unitButtons: Array.from(document.querySelectorAll(".unit-button")),
+  trafficStats: document.querySelector(".traffic-stats"),
+  accessStats: ACCESS_STATS_FIELDS.map(([key, selector]) => ({
+    key,
+    element: document.querySelector(selector),
+  })),
 };
 
 const ICONS = {
@@ -117,6 +130,7 @@ const ICONS = {
 function init() {
   hydrateInitialState();
   renderPopularCities();
+  loadAccessStats();
   bindEvents();
   registerAgentTools();
 
@@ -152,6 +166,74 @@ function renderPopularCities() {
     });
     dom.quickCities.append(button);
   });
+}
+
+function loadAccessStats() {
+  const callbackName = `__chinaWeatherTraffic_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+  const script = document.createElement("script");
+  let settled = false;
+
+  dom.trafficStats?.setAttribute("aria-busy", "true");
+
+  const cleanup = () => {
+    window.clearTimeout(timeoutId);
+    script.remove();
+    try {
+      delete window[callbackName];
+    } catch (error) {
+      window[callbackName] = undefined;
+    }
+  };
+
+  const fail = () => {
+    if (settled) {
+      return;
+    }
+
+    settled = true;
+    renderAccessStats(null);
+    cleanup();
+  };
+
+  window[callbackName] = (payload) => {
+    if (settled) {
+      return;
+    }
+
+    settled = true;
+    renderAccessStats(payload);
+    cleanup();
+  };
+
+  const timeoutId = window.setTimeout(fail, ACCESS_STATS_TIMEOUT_MS);
+
+  script.async = true;
+  script.referrerPolicy = "no-referrer-when-downgrade";
+  script.src = `${ACCESS_STATS_ENDPOINT}?jsonpCallback=${encodeURIComponent(callbackName)}`;
+  script.addEventListener("error", fail);
+  document.head.append(script);
+}
+
+function renderAccessStats(payload) {
+  dom.trafficStats?.setAttribute("aria-busy", "false");
+
+  dom.accessStats.forEach(({ key, element }) => {
+    if (!element) {
+      return;
+    }
+
+    element.textContent = formatAccessStat(payload?.[key]);
+  });
+}
+
+function formatAccessStat(value) {
+  const number = Number(value);
+
+  if (!Number.isFinite(number)) {
+    return "N/A";
+  }
+
+  return new Intl.NumberFormat("en-US").format(number);
 }
 
 async function searchCities(rawQuery, options = {}) {
