@@ -2,7 +2,7 @@
 
 > Live current weather and 7-day forecasts for Chinese cities, designed for international travelers and agentic browsers.
 
-China Weather Desk is a static, free-to-use weather application. It searches Chinese cities by English name or pinyin, resolves city matches through Open-Meteo Geocoding, and displays current conditions plus a 7-day forecast from Open-Meteo Forecast.
+China Weather Desk is a static, free-to-use weather application. It searches Chinese cities by English name or pinyin, resolves city matches through Open-Meteo Geocoding, and displays current conditions plus a 7-day forecast from Open-Meteo Forecast. The home page also includes original traveler guidance, regional weather notes, data-source transparency, and an FAQ so crawlers and users can read useful publisher content without relying only on interactive API output.
 
 The page also displays lightweight public access statistics for site views, visitors, and current page views through Busuanzi.
 
@@ -14,6 +14,7 @@ The page also displays lightweight public access statistics for site views, visi
 - [Weather response schema](/weather-response.schema.json): JSON Schema for structured browser-tool weather responses.
 - [Agent Skills index](/.well-known/agent-skills/index.json): Discoverable skill definition for weather lookup.
 - [API catalog](/.well-known/api-catalog): Linkset describing the public upstream APIs used by this app.
+- [ads.txt](/ads.txt): Authorized digital sellers record for AdSense.
 
 ## Query Interface
 
@@ -27,6 +28,13 @@ Example:
 ```text
 /?city=Shanghai&unit=fahrenheit
 ```
+
+## Human Content Sections
+
+- `#china-weather-guide`: Practical interpretation of current and 7-day weather for travelers.
+- `#regional-notes`: Regional China weather patterns for north, east coast, south, southwest, and central cities.
+- `#methodology`: Data-source and privacy transparency.
+- `#faq`: Search, apparent temperature, and data-storage questions.
 
 ## Browser Tool
 

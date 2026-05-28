@@ -1,27 +1,32 @@
 {
   "linkset": [
     {
-      "anchor": "https://weather.9981ai.xyz/",
+      "anchor": "https://9981ai.xyz/",
       "describedby": [
         {
-          "href": "https://weather.9981ai.xyz/index.md",
+          "href": "https://9981ai.xyz/index.md",
           "type": "text/markdown",
           "title": "China Weather Desk markdown description"
         },
         {
-          "href": "https://weather.9981ai.xyz/llms.txt",
+          "href": "https://9981ai.xyz/llms.txt",
           "type": "text/markdown",
           "title": "Agent-readable site overview"
         },
         {
-          "href": "https://weather.9981ai.xyz/.well-known/ai-data.json",
+          "href": "https://9981ai.xyz/.well-known/ai-data.json",
           "type": "application/json",
           "title": "AI-readable structured site data"
         },
         {
-          "href": "https://weather.9981ai.xyz/weather-response.schema.json",
+          "href": "https://9981ai.xyz/weather-response.schema.json",
           "type": "application/schema+json",
           "title": "Weather response JSON Schema"
+        },
+        {
+          "href": "https://9981ai.xyz/ads.txt",
+          "type": "text/plain",
+          "title": "Authorized digital sellers file"
         }
       ],
       "service-doc": [
@@ -38,7 +43,7 @@
       ],
       "alternate": [
         {
-          "href": "https://weather.9981ai.xyz/index.md",
+          "href": "https://9981ai.xyz/index.md",
           "type": "text/markdown",
           "title": "Markdown version"
         }

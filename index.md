@@ -10,6 +10,7 @@ China Weather Desk is a lightweight weather page for foreigners who need quick w
 - Supports Celsius and Fahrenheit.
 - Uses English UI labels and English city metadata from Open-Meteo.
 - Displays public site views, visitors, and current page views.
+- Provides original traveler guidance, regional weather notes, data-source transparency, and an FAQ on the home page.
 
 ## How Agents Can Use It
 
@@ -29,6 +30,13 @@ Additional AI-readable JSON resources:
 
 - `/.well-known/ai-data.json`: capabilities, query interface, browser-tool metadata, data sources, and limitations.
 - `/weather-response.schema.json`: JSON Schema for structured weather responses.
+
+Visible content sections for human readers:
+
+- `#china-weather-guide`: How to use weather data for daily travel decisions.
+- `#regional-notes`: Common weather patterns in northern, eastern, southern, southwestern, and central China.
+- `#methodology`: Data sources, privacy posture, and transparency notes.
+- `#faq`: Weather lookup and usage questions.
 
 ## Data Source
 

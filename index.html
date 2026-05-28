@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Live weather forecasts for Chinese cities, built for international travelers."
+      content="China Weather Desk helps international travelers compare current weather, 7-day forecasts, seasonal context, and travel planning guidance for Chinese cities."
     >
     <meta name="robots" content="index,follow">
+    <meta name="google-adsense-account" content="ca-pub-6996532981042566">
     <title>China Weather Desk</title>
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="https://9981ai.xyz/">
     <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version">
     <link rel="llms-txt" type="text/markdown" href="/llms.txt">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -36,21 +37,21 @@
         "@graph": [
           {
             "@type": "WebSite",
-            "@id": "https://weather.9981ai.xyz/#website",
+            "@id": "https://9981ai.xyz/#website",
             "name": "China Weather Desk",
-            "url": "https://weather.9981ai.xyz/",
+            "url": "https://9981ai.xyz/",
             "inLanguage": "en",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://weather.9981ai.xyz/?city={city_name}&unit=celsius",
+              "target": "https://9981ai.xyz/?city={city_name}&unit=celsius",
               "query-input": "required name=city_name"
             }
           },
           {
             "@type": "WebApplication",
-            "@id": "https://weather.9981ai.xyz/#app",
+            "@id": "https://9981ai.xyz/#app",
             "name": "China Weather Desk",
-            "url": "https://weather.9981ai.xyz/",
+            "url": "https://9981ai.xyz/",
             "applicationCategory": "WeatherApplication",
             "operatingSystem": "Any",
             "inLanguage": "en",
@@ -63,12 +64,12 @@
             },
             "softwareHelp": {
               "@type": "CreativeWork",
-              "url": "https://weather.9981ai.xyz/llms.txt",
+              "url": "https://9981ai.xyz/llms.txt",
               "encodingFormat": "text/markdown"
             },
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://weather.9981ai.xyz/?city={city_name}&unit={unit_name}",
+              "target": "https://9981ai.xyz/?city={city_name}&unit={unit_name}",
               "query-input": [
                 "required name=city_name",
                 "optional name=unit_name"
@@ -77,10 +78,10 @@
           },
           {
             "@type": "Dataset",
-            "@id": "https://weather.9981ai.xyz/#weather-query-interface",
+            "@id": "https://9981ai.xyz/#weather-query-interface",
             "name": "China city weather query interface",
             "description": "AI-readable description of the URL and browser-tool interface for querying Chinese city weather.",
-            "url": "https://weather.9981ai.xyz/.well-known/ai-data.json",
+            "url": "https://9981ai.xyz/.well-known/ai-data.json",
             "encodingFormat": "application/json",
             "license": "https://open-meteo.com/en/license",
             "isAccessibleForFree": true,
@@ -98,15 +99,28 @@
             ]
           },
           {
+            "@type": "Article",
+            "@id": "https://9981ai.xyz/#china-weather-guide",
+            "headline": "How to read China weather before you go",
+            "url": "https://9981ai.xyz/#china-weather-guide",
+            "inLanguage": "en",
+            "about": [
+              "China weather",
+              "travel planning",
+              "city forecasts"
+            ],
+            "description": "Original guidance for travelers interpreting current weather, 7-day forecasts, regional weather patterns, data sources, and privacy expectations when checking Chinese city weather."
+          },
+          {
             "@type": "FAQPage",
-            "@id": "https://weather.9981ai.xyz/#faq",
+            "@id": "https://9981ai.xyz/#faq",
             "mainEntity": [
               {
                 "@type": "Question",
                 "name": "How can an agent query weather for a Chinese city?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Use the URL pattern https://weather.9981ai.xyz/?city=Beijing&unit=celsius or call the WebMCP read-only tool get_china_city_weather when available."
+                  "text": "Use the URL pattern https://9981ai.xyz/?city=Beijing&unit=celsius or call the WebMCP read-only tool get_china_city_weather when available."
                 }
               },
               {
@@ -115,6 +129,14 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "No. The page calls Open-Meteo public APIs directly from the browser."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does the forecast help travelers decide?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The forecast helps travelers compare temperature, rain probability, wind, humidity, and daily conditions before planning outdoor time, transit, packing, and day trips in Chinese cities."
                 }
               }
             ]
@@ -236,6 +258,134 @@
             <div class="forecast-grid" id="forecastGrid"></div>
           </div>
         </section>
+
+        <section class="content-section" id="china-weather-guide" aria-labelledby="guideTitle">
+          <div class="section-heading">
+            <p class="eyebrow">Traveler guide</p>
+            <h2 id="guideTitle">How to read China weather before you go</h2>
+          </div>
+
+          <div class="guide-grid">
+            <article class="guide-card guide-card-wide">
+              <h3>Built for decisions, not just numbers</h3>
+              <p>
+                Weather in China can change quickly across distance, season, and elevation. A mild morning in
+                Shanghai can still turn into a rainy afternoon, while cities such as Chengdu and Chongqing often
+                feel warmer than the air temperature suggests because of humidity. This page combines current
+                conditions with a 7-day view so visitors can decide when to walk, use metro transfers, pack rain
+                gear, or move outdoor plans to a better day.
+              </p>
+            </article>
+
+            <article class="guide-card">
+              <h3>Use the current panel first</h3>
+              <p>
+                Check the current temperature, apparent temperature, humidity, and wind before leaving a hotel,
+                airport, or train station. The apparent temperature is useful when heat, humidity, or wind makes
+                the day feel different from the headline temperature.
+              </p>
+            </article>
+
+            <article class="guide-card">
+              <h3>Compare the full week</h3>
+              <p>
+                The 7-day forecast shows high and low temperatures, rain probability, wind speed, and a plain
+                English weather label. Use it to choose museum days, mountain trips, city walks, and laundry or
+                packing windows.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" id="regional-notes" aria-labelledby="regionalTitle">
+          <div class="section-heading">
+            <p class="eyebrow">Regional notes</p>
+            <h2 id="regionalTitle">Common weather patterns by area</h2>
+          </div>
+
+          <div class="regional-grid">
+            <article class="region-card">
+              <h3>North China</h3>
+              <p>
+                Beijing, Tianjin, and nearby cities often have hot summers, cold winters, and dry transitions in
+                spring and autumn. Wind can matter as much as temperature, especially for long walks and cycling.
+              </p>
+            </article>
+
+            <article class="region-card">
+              <h3>East coast</h3>
+              <p>
+                Shanghai, Hangzhou, Nanjing, and coastal routes can feel humid, with frequent rain periods. Check
+                both precipitation probability and wind when planning riverside or waterfront activities.
+              </p>
+            </article>
+
+            <article class="region-card">
+              <h3>South China</h3>
+              <p>
+                Guangzhou and Shenzhen are usually warm and humid for much of the year. Sudden showers are common,
+                so a low-temperature day can still feel sticky if humidity is high.
+              </p>
+            </article>
+
+            <article class="region-card">
+              <h3>Southwest and central China</h3>
+              <p>
+                Chengdu, Chongqing, Wuhan, and surrounding areas can have humid summers and cloudy stretches.
+                Apparent temperature and rain probability are useful signals for comfort and timing.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" id="methodology" aria-labelledby="methodTitle">
+          <div class="method-panel">
+            <div>
+              <p class="eyebrow">Data and transparency</p>
+              <h2 id="methodTitle">What this site uses</h2>
+            </div>
+            <p>
+              China Weather Desk resolves city searches through Open-Meteo Geocoding with results limited to
+              China. Forecasts come from Open-Meteo Forecast and are requested directly in the browser with
+              automatic timezone handling. The page does not ask for location permission, does not require an
+              account, and does not sell weather data. Access statistics are shown publicly through Busuanzi.
+            </p>
+          </div>
+        </section>
+
+        <section class="content-section faq-section" id="faq" aria-labelledby="faqTitle">
+          <div class="section-heading">
+            <p class="eyebrow">Questions</p>
+            <h2 id="faqTitle">Weather lookup FAQ</h2>
+          </div>
+
+          <div class="faq-list">
+            <details>
+              <summary>Can I search by pinyin or English city names?</summary>
+              <p>
+                Yes. Try names such as Beijing, Shanghai, Guangzhou, Shenzhen, Chengdu, Xi'an, Hangzhou, Nanjing,
+                Wuhan, or Chongqing. If a search has multiple matches, the page shows province, municipality,
+                population, and timezone information to help you choose the right city.
+              </p>
+            </details>
+
+            <details>
+              <summary>Why do some days feel hotter or colder than the temperature?</summary>
+              <p>
+                Humidity and wind affect comfort. The current weather panel includes apparent temperature so you
+                can compare the measured temperature with how the weather may feel outside.
+              </p>
+            </details>
+
+            <details>
+              <summary>Does this site store my city searches?</summary>
+              <p>
+                No account is required and the weather search runs in your browser. The site uses public APIs for
+                city and forecast data, plus public aggregate visit counts.
+              </p>
+            </details>
+          </div>
+        </section>
       </main>
 
       <footer class="site-footer" aria-label="Site information">
@@ -253,6 +403,16 @@
             <strong id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">...</span></strong>
           </span>
         </div>
+        <nav class="footer-links" aria-label="Content links">
+          <a href="#china-weather-guide">Guide</a>
+          <a href="#regional-notes">Regional notes</a>
+          <a href="#methodology">Data sources</a>
+          <a href="#faq">FAQ</a>
+          <a href="/ads.txt">ads.txt</a>
+        </nav>
+        <p class="publisher-note">
+          Publisher content, weather guidance, and city forecasts are provided for travelers using China Weather Desk.
+        </p>
       </footer>
     </div>
 

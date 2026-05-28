@@ -172,13 +172,13 @@ function dynamicSitemap(req) {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${origin}/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>${origin}/index.md</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -212,6 +212,11 @@ function apiCatalog(req) {
           href: `${origin}/weather-response.schema.json`,
           type: "application/schema+json",
           title: "Weather response JSON Schema",
+        },
+        {
+          href: `${origin}/ads.txt`,
+          type: "text/plain",
+          title: "Authorized digital sellers file",
         },
       ],
         "service-doc": [

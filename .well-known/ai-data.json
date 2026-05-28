@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "China Weather Desk",
-  "url": "https://weather.9981ai.xyz/",
+  "url": "https://9981ai.xyz/",
   "description": "Live current weather and 7-day forecasts for Chinese cities, designed for international travelers and agentic browsers.",
   "inLanguage": "en",
   "isAccessibleForFree": true,
@@ -11,11 +11,12 @@
     "show current temperature, apparent temperature, humidity, wind speed, and weather condition",
     "show 7-day daily forecasts with high and low temperature, precipitation probability, wind speed, and weather condition",
     "switch temperature units between Celsius and Fahrenheit",
-    "show public site and page access statistics"
+    "show public site and page access statistics",
+    "provide original traveler guidance, regional weather notes, data transparency, and a weather lookup FAQ"
   ],
   "queryInterface": {
     "method": "GET",
-    "urlTemplate": "https://weather.9981ai.xyz/?city={city}&unit={unit}",
+    "urlTemplate": "https://9981ai.xyz/?city={city}&unit={unit}",
     "parameters": [
       {
         "name": "city",
@@ -53,7 +54,7 @@
       "required": ["city"],
       "additionalProperties": false
     },
-    "outputSchema": "https://weather.9981ai.xyz/weather-response.schema.json"
+    "outputSchema": "https://9981ai.xyz/weather-response.schema.json"
   },
   "dataSources": [
     {
@@ -82,11 +83,12 @@
     "aiTraining": false
   },
   "relatedResources": {
-    "llmsTxt": "https://weather.9981ai.xyz/llms.txt",
-    "markdownDescription": "https://weather.9981ai.xyz/index.md",
-    "agentSkills": "https://weather.9981ai.xyz/.well-known/agent-skills/index.json",
-    "apiCatalog": "https://weather.9981ai.xyz/.well-known/api-catalog",
-    "sitemap": "https://weather.9981ai.xyz/sitemap.xml"
+    "llmsTxt": "https://9981ai.xyz/llms.txt",
+    "markdownDescription": "https://9981ai.xyz/index.md",
+    "agentSkills": "https://9981ai.xyz/.well-known/agent-skills/index.json",
+    "apiCatalog": "https://9981ai.xyz/.well-known/api-catalog",
+    "sitemap": "https://9981ai.xyz/sitemap.xml",
+    "adsTxt": "https://9981ai.xyz/ads.txt"
   },
   "limitations": [
     "No air quality data.",

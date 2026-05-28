@@ -2,7 +2,7 @@
   "$schema": "https://agentskills.io/schemas/skill-discovery-index.json",
   "publisher": {
     "name": "China Weather Desk",
-    "url": "https://weather.9981ai.xyz/"
+    "url": "https://9981ai.xyz/"
   },
   "skills": [
     {

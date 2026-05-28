@@ -574,9 +574,94 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.content-section {
+  margin-top: 34px;
+}
+
+.content-section h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.content-section p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.guide-grid,
+.regional-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.guide-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-card,
+.region-card,
+.method-panel,
+.faq-list details {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 26px rgba(23, 33, 30, 0.07);
+}
+
+.guide-card,
+.region-card {
+  padding: 18px;
+}
+
+.guide-card-wide {
+  grid-column: 1 / -1;
+}
+
+.regional-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.method-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 22px;
+}
+
+.method-panel p {
+  margin-top: 0;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-list details {
+  padding: 0;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
 .site-footer {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
   margin-top: 28px;
 }
 
@@ -607,6 +692,33 @@ h1 {
   color: var(--ink);
   font-size: 0.86rem;
   font-weight: 900;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.footer-links a {
+  color: var(--teal-dark);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.publisher-note {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .sr-only {
@@ -649,6 +761,16 @@ h1 {
 
   .forecast-grid {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+
+  .guide-grid,
+  .regional-grid,
+  .method-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .method-panel p {
+    margin-top: 12px;
   }
 }
 
@@ -697,6 +819,14 @@ h1 {
   .hero-text {
     margin-top: 18px;
     font-size: 1rem;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading h2 {
+    margin-top: 4px;
   }
 
   .search-panel,
@@ -764,6 +894,28 @@ h1 {
   .traffic-pill {
     justify-content: space-between;
     width: 100%;
+  }
+
+  .content-section {
+    margin-top: 26px;
+  }
+
+  .content-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .guide-card,
+  .region-card,
+  .method-panel {
+    padding: 14px;
+  }
+
+  .faq-list summary {
+    padding: 14px;
+  }
+
+  .faq-list details p {
+    padding: 0 14px 14px;
   }
 
   .forecast-day {

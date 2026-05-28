@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://weather.9981ai.xyz/weather-response.schema.json",
+  "$id": "https://9981ai.xyz/weather-response.schema.json",
   "title": "China Weather Desk Weather Response",
   "type": "object",
   "required": ["found"],
